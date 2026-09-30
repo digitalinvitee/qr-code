@@ -1,0 +1,443 @@
+*{box-sizing:border-box}
+:root{
+  --chocolate:#4b2d21;
+  --deep:#2d1b15;
+  --cream:#f3eadc;
+  --paper:#fbf7ef;
+  --line:rgba(75,45,33,.22);
+}
+html{background:var(--cream)}
+body{
+  margin:0;color:var(--chocolate);background:var(--cream);
+  font-family:"Noto Sans Georgian",system-ui,sans-serif;
+}
+button{font:inherit}
+.page{min-height:100svh;overflow:hidden}
+.hero{
+  position:relative;min-height:100svh;padding:42px 22px 34px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;isolation:isolate;
+  background:
+    radial-gradient(circle at 50% 30%,rgba(255,255,255,.55),transparent 32%),
+    linear-gradient(180deg,#f8f0e4 0%,#eadbc7 100%);
+}
+.grain{
+  position:absolute;inset:0;z-index:-1;opacity:.15;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
+}
+.eyebrow{
+  margin:0 0 22px;text-transform:uppercase;letter-spacing:.18em;
+  font-size:10px;font-weight:600;
+}
+h1{
+  margin:20px 0 18px;font-size:clamp(36px,10vw,58px);line-height:1.02;
+  letter-spacing:-.045em;font-weight:500;
+}
+h1 em{
+  display:inline-block;font-family:"Playfair Display",serif;font-weight:500;
+  font-size:.93em;letter-spacing:-.03em;
+}
+.intro{max-width:420px;margin:0 auto 28px;font-size:14px;line-height:1.75}
+.primary{
+  border:0;border-radius:999px;background:var(--chocolate);color:var(--paper);
+  min-height:58px;padding:15px 24px;font-weight:600;cursor:pointer;
+  box-shadow:0 12px 30px rgba(45,27,21,.15);
+}
+.primary span{font-size:20px;vertical-align:-1px}
+.micro{font-size:10px;opacity:.66;margin:12px 0 0}
+.camera{position:relative;width:150px;height:116px;margin-top:4px}
+.camera-body{
+  position:absolute;left:15px;top:35px;width:120px;height:70px;
+  border:2px solid var(--chocolate);border-radius:8px;
+}
+.camera-top{
+  position:absolute;left:42px;top:25px;width:45px;height:18px;
+  border:2px solid var(--chocolate);border-bottom:0;border-radius:5px 5px 0 0;
+}
+.lens{
+  position:absolute;width:56px;height:56px;border:2px solid var(--chocolate);
+  border-radius:50%;left:31px;top:7px;display:grid;place-items:center;
+}
+.lens:before{content:"";width:42px;height:42px;border:1px solid var(--chocolate);border-radius:50%}
+.lens i{position:absolute;width:14px;height:14px;border:1px solid var(--chocolate);border-radius:50%}
+.viewfinder{position:absolute;width:20px;height:12px;border:1px solid var(--chocolate);right:11px;top:9px}
+.button{position:absolute;width:15px;height:5px;background:var(--chocolate);left:12px;top:-7px;border-radius:2px}
+.flash{position:absolute;width:22px;height:22px;border-left:1px solid var(--chocolate);transform:rotate(45deg);right:5px;top:2px}
+.selection{max-width:720px;margin:auto;padding:48px 20px 64px;background:var(--paper)}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:22px}
+.section-head .eyebrow{margin:0 0 7px}
+h2{font-family:"Playfair Display",serif;font-size:30px;margin:0;font-weight:500}
+.text-btn{border:0;background:none;color:var(--chocolate);font-weight:600;cursor:pointer;padding:8px 0}
+.preview-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:18px}
+.preview{
+  position:relative;aspect-ratio:1/1;border-radius:12px;overflow:hidden;background:#e7ddd0;
+}
+.preview img,.preview video{width:100%;height:100%;object-fit:cover;display:block}
+.remove{
+  position:absolute;right:7px;top:7px;width:30px;height:30px;border:0;border-radius:50%;
+  background:rgba(45,27,21,.78);color:white;font-size:18px;cursor:pointer;
+}
+.file-badge{
+  position:absolute;left:7px;bottom:7px;background:rgba(251,247,239,.9);
+  border-radius:999px;padding:5px 8px;font-size:9px;
+}
+.upload{width:100%;margin-top:8px}
+footer{
+  display:flex;justify-content:center;align-items:center;gap:14px;padding:25px 18px;
+  background:var(--deep);color:var(--cream);font-size:8px;letter-spacing:.18em;
+}
+.heart{font-size:18px;letter-spacing:0}
+dialog{border:0;padding:0;background:transparent}
+dialog::backdrop{background:rgba(28,17,13,.66);backdrop-filter:blur(5px)}
+.dialog-card{
+  width:min(90vw,390px);background:var(--paper);color:var(--chocolate);
+  border-radius:22px;padding:32px 24px;text-align:center;
+}
+.dialog-card p{font-size:13px;line-height:1.65;margin:12px 0 22px}
+.dialog-card .primary{width:100%}
+.success-mark{font-family:serif;font-size:46px;margin-bottom:8px}
+@media(min-width:700px){
+  .hero{padding:60px 30px}.preview-grid{grid-template-columns:repeat(3,1fr)}
+}
+
+
+/* V2 — refined editorial typography */
+body{
+  font-family:"Noto Sans Georgian",system-ui,sans-serif;
+  font-weight:400;
+}
+.eyebrow{
+  font-family:"Noto Sans Georgian",system-ui,sans-serif;
+  font-weight:500;
+  font-size:9px;
+  letter-spacing:.24em;
+}
+h1{
+  font-family:"Noto Serif Georgian",serif;
+  font-weight:500;
+  font-size:clamp(37px,10.5vw,62px);
+  line-height:1.13;
+  letter-spacing:-.035em;
+  max-width:620px;
+}
+h1 em{
+  font-family:"Noto Serif Georgian",serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:.93em;
+  letter-spacing:-.04em;
+}
+.intro{
+  font-family:"Noto Sans Georgian",system-ui,sans-serif;
+  font-weight:300;
+  font-size:13px;
+  line-height:1.9;
+  max-width:390px;
+}
+.primary{
+  font-family:"Noto Sans Georgian",system-ui,sans-serif;
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.015em;
+}
+.micro{
+  font-family:"Noto Sans Georgian",system-ui,sans-serif;
+  font-weight:300;
+  font-size:9px;
+  letter-spacing:.02em;
+}
+.section-head h2,.dialog-card h2{
+  font-family:"Noto Serif Georgian",serif;
+  font-weight:500;
+  letter-spacing:-.025em;
+}
+.text-btn{
+  font-family:"Noto Sans Georgian",system-ui,sans-serif;
+  font-size:11px;
+  font-weight:500;
+}
+footer{
+  font-family:"Playfair Display",serif;
+  font-size:9px;
+  letter-spacing:.19em;
+}
+
+
+/* V3 — supplied vintage background + unified minimalist typography */
+.hero{
+  min-height:100svh;
+  background:
+    linear-gradient(rgba(48,25,15,.08),rgba(48,25,15,.08)),
+    url("background.png") center center / cover no-repeat;
+  color:#f2dfbd;
+}
+.hero .grain{display:none}
+
+/* Keep typography intentionally consistent rather than hierarchical */
+.hero .eyebrow,
+.hero h1,
+.hero h1 em,
+.hero .intro,
+.hero .primary,
+.hero .micro{
+  font-family:"Noto Serif Georgian",serif;
+  font-size:16px;
+  line-height:1.65;
+  font-weight:500;
+  letter-spacing:0;
+  font-style:normal;
+}
+.hero h1{
+  margin:22px auto 18px;
+  max-width:340px;
+}
+.hero .eyebrow{
+  margin-bottom:20px;
+  text-transform:none;
+}
+.hero .intro{
+  max-width:340px;
+  margin-bottom:26px;
+}
+.hero .micro{
+  font-size:16px;
+  opacity:.78;
+}
+.hero .primary{
+  min-height:54px;
+  padding:13px 22px;
+  background:#f0ddb9;
+  color:#4a2919;
+  box-shadow:none;
+  border:1px solid rgba(255,239,207,.4);
+}
+.hero .primary span{font-size:16px}
+.camera{display:none}
+
+/* Selected-media area follows the same restrained type language */
+.selection{
+  background:#4a2919;
+  color:#f2dfbd;
+}
+.selection .eyebrow,
+.selection h2,
+.selection .text-btn,
+.selection .primary,
+.selection .micro{
+  font-family:"Noto Serif Georgian",serif;
+  font-size:16px;
+  line-height:1.65;
+  font-weight:500;
+  letter-spacing:0;
+}
+.selection .text-btn{color:#f2dfbd}
+.selection .primary{
+  background:#f0ddb9;
+  color:#4a2919;
+  box-shadow:none;
+}
+
+
+/* V4 — reduced copy and calmer editorial composition */
+.hero{
+  justify-content:center;
+  padding:44px 26px 48px;
+}
+.hero h1{
+  font-family:"Noto Serif Georgian",serif;
+  font-size:21px;
+  line-height:1.65;
+  font-weight:500;
+  letter-spacing:0;
+  margin:0 auto 18px;
+  max-width:330px;
+}
+.hero .intro{
+  font-family:"Noto Serif Georgian",serif;
+  font-size:14px;
+  line-height:1.7;
+  font-weight:400;
+  max-width:310px;
+  margin:0 auto 28px;
+  opacity:.9;
+}
+.hero .primary{
+  font-family:"Noto Serif Georgian",serif;
+  font-size:14px;
+  font-weight:500;
+  min-height:52px;
+  padding:12px 21px;
+}
+
+
+/* Final minimalist hero */
+.hero{
+  justify-content:center;
+}
+.hero .primary{
+  margin:0;
+}
+
+/* Dedicated success state */
+.success-screen{
+  min-height:100svh;
+  padding:40px 24px;
+  background:
+    linear-gradient(rgba(48,25,15,.08),rgba(48,25,15,.08)),
+    url("background.png") center center / cover no-repeat;
+  color:#f2dfbd;
+}
+.success-screen:not([hidden]){
+  display:grid;
+  place-items:center;
+}
+.success-inner{
+  width:min(100%,360px);
+  text-align:center;
+}
+.success-heart{
+  font-family:serif;
+  font-size:30px;
+  line-height:1;
+  margin-bottom:18px;
+}
+.success-title,
+.success-copy,
+.success-again{
+  font-family:"Noto Serif Georgian",serif;
+  font-size:16px;
+  line-height:1.7;
+  font-weight:500;
+}
+.success-title{margin:0 0 6px}
+.success-copy{margin:0 0 28px;font-weight:400}
+.success-again{
+  min-height:52px;
+  padding:12px 24px;
+  border:1px solid rgba(255,239,207,.5);
+  border-radius:999px;
+  background:#f0ddb9;
+  color:#4a2919;
+  cursor:pointer;
+}
+
+
+/* V6 — keep completion screen fixed and stable after upload */
+.success-screen:not([hidden]){
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  width:100%;
+  height:100dvh;
+  min-height:100dvh;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+}
+
+/* V7 — preview/upload section lands cleanly below mobile browser chrome */
+.selection{
+  scroll-margin-top:0;
+  min-height:100svh;
+}
+
+
+/* V8 — one-screen flow: picker -> preview/upload -> success */
+.selection-screen{
+  min-height:100svh;
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:38px 20px 34px;
+  background:
+    linear-gradient(rgba(48,25,15,.10),rgba(48,25,15,.10)),
+    url("background.png") center center / cover no-repeat;
+  color:#f2dfbd;
+}
+.selection-screen:not([hidden]){
+  display:flex;
+  flex-direction:column;
+}
+.selection-screen .section-head{
+  width:min(100%,620px);
+  margin:0 auto 18px;
+}
+.selection-screen .preview-grid{
+  width:min(100%,620px);
+  margin:0 auto 18px;
+  flex:1;
+  align-content:start;
+  overflow:auto;
+}
+.selection-screen .upload{
+  width:min(100%,620px);
+  margin:auto auto 0;
+  flex:0 0 auto;
+}
+.selection-screen .text-btn{
+  color:#f2dfbd;
+}
+@media(max-width:480px){
+  .selection-screen .preview-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .selection-screen .preview{
+    aspect-ratio:1/1;
+  }
+}
+
+
+/* V9 — direct upload, no preview grid */
+.upload-progress-screen{
+  min-height:100svh;
+  width:100%;
+  padding:40px 26px;
+  background:
+    linear-gradient(rgba(48,25,15,.10),rgba(48,25,15,.10)),
+    url("background.png") center center / cover no-repeat;
+  color:#f2dfbd;
+}
+.upload-progress-screen:not([hidden]){
+  position:fixed;
+  inset:0;
+  z-index:900;
+  display:grid;
+  place-items:center;
+}
+.progress-inner{
+  width:min(100%,360px);
+  text-align:center;
+}
+.progress-count,
+.progress-percent,
+.progress-note{
+  font-family:"Noto Serif Georgian",serif;
+  font-weight:500;
+}
+.progress-count{
+  margin:0 0 18px;
+  font-size:16px;
+}
+.progress-track{
+  width:100%;
+  height:3px;
+  background:rgba(242,223,189,.24);
+  overflow:hidden;
+}
+.progress-bar{
+  width:0;
+  height:100%;
+  background:#f2dfbd;
+  transition:width .28s ease;
+}
+.progress-percent{
+  margin:14px 0 0;
+  font-size:16px;
+}
+.progress-note{
+  margin:12px 0 0;
+  font-size:11px;
+  line-height:1.6;
+  font-weight:400;
+  opacity:.72;
+}

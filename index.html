@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#4b2d21">
+  <title>გახდი დამხმარე ფოტოგრაფი</title>
+  <meta name="description" content="გაგვიზიარე შენ მიერ გადაღებული ფოტოები და ვიდეოები">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600&family=Noto+Serif+Georgian:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="grain"></div>
+
+      <button class="primary" id="chooseBtn" type="button">
+        <span>＋</span> ატვირთე ფოტოები და ვიდეოები
+      </button>
+      <input id="mediaInput" type="file" accept="image/*,video/*" multiple hidden>
+
+    </section>
+
+    <section class="upload-progress-screen" id="progressScreen" hidden>
+      <div class="progress-inner">
+        <p class="progress-count" id="progressCount">0 / 0 ატვირთულია</p>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <p class="progress-percent" id="progressPercent">0%</p>
+        <p class="progress-note">ფოტოები იტვირთება — არ დახურო გვერდი</p>
+      </div>
+    </section>
+
+
+    <section class="success-screen" id="successScreen" hidden>
+      <div class="success-inner">
+        <div class="success-heart">♡</div>
+        <p class="success-title">მადლობა</p>
+        <p class="success-copy">შენი მოგონებები ჩვენთანაა.</p>
+        <button class="success-again" id="uploadAgainBtn" type="button">კიდევ ატვირთე</button>
+      </div>
+    </section>
+
+    <footer>
+      <span>WITH LOVE</span>
+      <span class="heart">♡</span>
+      <span>KEEP THE MOMENT</span>
+    </footer>
+  </main>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
